@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Estudiantes",
+        "redirect": "/dashboard/Estudiantes"
+    },
+
+    {
+        "nombre": "Cursos",
+        "redirect": "/dashboard/Cursos"
+    },
+
+    {
+        "nombre": "Clases",
+        "redirect": "/dashboard/Clases"
+
+    }
+]
