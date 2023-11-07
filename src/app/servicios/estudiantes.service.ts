@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Estudiantes } from '../interfaces/estudiantes';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class EstudiantesService {
 
   listEstudiantes: Estudiantes[] = [
-    {DNI: 1, nombre: 'Vivi', apellido: "Ope", sexo: 'Femenino', telefono: 14523, email: "Viviope2@glorb.com"},
-    {DNI: 2, nombre: 'Aba', apellido: "Uegs", sexo: 'Femenino', telefono: 98463, email: "Abauegs8@bian.com"},
-    {DNI: 3, nombre: 'Ulger', apellido: "Vaw", sexo: 'Masculino', telefono: 58136, email: "Ulgervaw9@oie.com"},
-    {DNI: 4, nombre: 'Powa', apellido: "Siux", sexo: 'Masculino', telefono: 94231, email: "Powasiux5@gail.com"},
-    {DNI: 5, nombre: 'Biwo', apellido: "Bari", sexo: 'Femenino', telefono: 14523, email: "Biwobari8@gma.com"},
+    {DNI: 1, nombre: 'Viviana', apellido: "Orozco", sexo: 'Femenino', telefono: 14523, email: "Viviorozco2@gmail.com"},
+    {DNI: 2, nombre: 'Agustina', apellido: "Elizalde", sexo: 'Femenino', telefono: 98463, email: "Aguseli8@outlook.com"},
+    {DNI: 3, nombre: 'Ulises', apellido: "Valderrama", sexo: 'Masculino', telefono: 58136, email: "Ulirrama9@outlook.com"},
+    {DNI: 4, nombre: 'Pablo', apellido: "Salvador", sexo: 'Masculino', telefono: 94231, email: "PabloSal5@gmail.com"},
+    {DNI: 5, nombre: 'Tina', apellido: "Barti", sexo: 'Femenino', telefono: 14523, email: "Tinabarti8@gmail.com"},
   ];
+  
 
-  constructor() { }
+  constructor() {}
 
   getEstudiante(){
     return this.listEstudiantes.slice();
@@ -23,13 +25,6 @@ export class EstudiantesService {
   eliminarEstudiante(index:number){
     this.listEstudiantes.splice( index, 1)
   }
-
-  public editarEstudiante(element: Estudiantes, updatedElement: Estudiantes) {
-    let index = this.listEstudiantes.indexOf(element);
-    this.listEstudiantes[index] = updatedElement;
-    console.log(this.listEstudiantes[index]);
-}
-
 
   agregarEstudiante(estudiante: Estudiantes){
     this.listEstudiantes.unshift(estudiante);

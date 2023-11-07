@@ -1,0 +1,41 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Agregar Curso</span>  
+    </mat-toolbar>
+    <mat-card style="margin-top: 10px;">
+        <mat-card-content>
+            <form [formGroup]="formCursos" (ngSubmit)="agregarcurso()">
+                <mat-grid-list cols="4" rowHeight="70px">
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="ancho">
+                            <mat-label>Id-Curso</mat-label>
+                            <input matInput formControlName="idcurso">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="3" [rowspan]="4">
+                        
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1"> 
+                        <mat-form-field class="ancho">
+                            <mat-label>Nombre del Curso</mat-label>
+                            <input matInput formControlName="nombrecurso">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="ancho">
+                            <mat-label>Profesor</mat-label>
+                            <input matInput formControlName="profesor">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button color="warn">Cancelar</button>
+                        <button type="submit" [disabled]="formCursos.invalid" mat-raised-button color="primary" style="margin-left: 15px;">Aceptar</button>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <br>
+                <br>
+            </form>
+
+        </mat-card-content>
+      </mat-card>
+</div>

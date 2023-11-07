@@ -9,6 +9,12 @@ import { SharedModule } from '../shared/shared.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.component';
+import { CrearCursoComponent } from './crear-curso/crear-curso.component';
+import { CrearClaseComponent } from './crear-clase/crear-clase.component';
+
+
+
+
 
 
 @NgModule({
@@ -17,6 +23,8 @@ import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.co
     InicioComponent,
     NavbarComponent,
     CrearEstudianteComponent,
+    CrearCursoComponent,
+    CrearClaseComponent,
   ],
   imports: [
     CommonModule,

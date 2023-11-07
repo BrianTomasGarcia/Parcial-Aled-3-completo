@@ -1,0 +1,46 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Agregar Clase</span>
+    </mat-toolbar>
+    <mat-card style="margin-top: 10px;">
+        <mat-card-content>
+            <form [formGroup]="formClase" (ngSubmit)="agregarclase()">
+                <mat-grid-list cols="4" rowHeight="70px">
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="ancho">
+                            <mat-label>ID-Clase</mat-label>
+                            <input matInput formControlName ="idclase">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="3" [rowspan]="5">
+                        
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="ancho">
+                            <mat-label>Nombre de Clase</mat-label>
+                            <input matInput formControlName ="nombreclase">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="ancho">
+                            <mat-label>Profesor de Clase</mat-label>
+                            <input matInput formControlName ="profeclase">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field class="ancho">
+                            <mat-label>Duración de Clase</mat-label>
+                            <input matInput formControlName ="duracion">
+                          </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <button mat-raised-button color="warn" style="margin-right: 10px;">Cancelar</button>
+                        <button type="submit" [disabled]="formClase.invalid" mat-raised-button color="primary">Aceptar</button>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <br>
+                <br>
+            </form>
+        </mat-card-content>
+      </mat-card>
+</div>

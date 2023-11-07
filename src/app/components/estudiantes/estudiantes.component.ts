@@ -1,11 +1,17 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Estudiantes } from 'src/app/interfaces/estudiantes';
-import { EstudiantesService } from 'src/app/servicios/estudiantes.service';
+import { EstudiantesService } from 'src/app/servicios/estudiantes.service'
+
+
 
 
 
@@ -25,8 +31,9 @@ export class EstudiantesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  
 
-  constructor(private estudianteService: EstudiantesService, private _snackBar : MatSnackBar, public dialog: MatDialog) { }
+  constructor(private estudianteService: EstudiantesService, private _snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
     this.cargarEstudiantes();
@@ -46,24 +53,6 @@ export class EstudiantesComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  editarEstudiante(element: any) {
-    this.abrirEditar(element, 'Editar-estudi');
-  }
-
-  abrirEditar(element: any, type: any): void {
-    const dialogRef = this.dialog.open(abrirEditarEstudiante, {
-      data: {dni: element.DNI, nombre: element.nombre, apellido: element.apellido, sexo: element.sexo, telefono: element.telefono, email: element.email},
-    });
-
-    if (type == 'Editar-estudi') {
-      dialogRef.afterClosed().subscribe(resultado => {
-        this.estudianteService.editarEstudiante(element, resultado);
-        this.dataSource.data = this.estudianteService.getEstudiante();
-      });
-    }
-    
-  }
-
   eliminarestudiante(index:number){
     console.log( index, 1);
 
@@ -77,17 +66,4 @@ export class EstudiantesComponent implements OnInit {
     })
   }
 
-  
-
-}
-
-export class abrirEditarEstudiante {
-  constructor(
-    public dialogRef: MatDialogRef<abrirEditarEstudiante>,
-    @Inject(MAT_DIALOG_DATA) public data: Estudiantes,
-  ) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 }

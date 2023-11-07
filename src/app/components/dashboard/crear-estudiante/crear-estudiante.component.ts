@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Estudiantes } from 'src/app/interfaces/estudiantes';
 import { EstudiantesService } from 'src/app/servicios/estudiantes.service';
@@ -11,8 +12,7 @@ import { EstudiantesService } from 'src/app/servicios/estudiantes.service';
 })
 export class CrearEstudianteComponent implements OnInit {
   form: FormGroup;
-  constructor(private fb: FormBuilder, private estudianteService: EstudiantesService,
-    private router: Router) { 
+  constructor(private fb: FormBuilder, private estudianteService: EstudiantesService, private router: Router, private _snackBar : MatSnackBar) { 
 
     this.form= this.fb.group({
       DNI: ['', Validators.required],
@@ -39,6 +39,12 @@ export class CrearEstudianteComponent implements OnInit {
     }
       this.estudianteService.agregarEstudiante(estudiante);
       this.router.navigate(['/dashboard/Estudiantes']);
+
+      this._snackBar.open('El estudiante fue agregado exitosamente', '',{
+        duration:1500,
+        horizontalPosition:'center',
+        verticalPosition: 'bottom'
+      })
   }
 
 }

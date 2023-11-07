@@ -6,6 +6,9 @@ import { EstudiantesComponent } from '../estudiantes/estudiantes.component';
 import { CursosComponent } from '../cursos/cursos.component';
 import { ClasesComponent } from '../clases/clases.component';
 import { CrearEstudianteComponent } from './crear-estudiante/crear-estudiante.component';
+import { CrearCursoComponent } from './crear-curso/crear-curso.component';
+import { CrearClaseComponent } from './crear-clase/crear-clase.component';
+
 
 
 
@@ -16,6 +19,8 @@ const routes: Routes = [
       { path: 'Cursos', component: CursosComponent },
       { path: 'Clases', component: ClasesComponent},
       { path: 'Crear-Estudiante', component: CrearEstudianteComponent},
+      { path: 'Crear-Curso', component: CrearCursoComponent},
+      { path: 'Crear-Clase', component: CrearClaseComponent},
     ]  
   },
     
